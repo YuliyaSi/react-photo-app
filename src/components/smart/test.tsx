@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {makeApiRequest} from "../../core/api";
 import {Item} from "../../core/types";
-import Checkbox from "../ui/checkbox";
-import ListItem from "../ui/listitem";
+import List from "./list";
 
 const Test = () => {
     const [list, setList] = useState<Item[] | null>(null);
@@ -13,9 +12,7 @@ const Test = () => {
 
     return (
         <>
-            {list && <ListItem {...list[0]}>
-                <Checkbox/>
-            </ListItem>}
+            {list && <List list={list}/>}
         </>
     )
 };
