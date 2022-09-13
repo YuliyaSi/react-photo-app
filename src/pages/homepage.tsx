@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Item} from "../core/types";
 import List from "../components/list";
+import "../styles/homepage/index.scss"
 
 const Homepage = ({ list }: HomepageProps) => {
     const [count, setCount] = useState(0);
@@ -9,12 +10,12 @@ const Homepage = ({ list }: HomepageProps) => {
         setCount(prevState => prevState + 1) : setCount(prevState => prevState - 1)
 
     return (
-        <div>
-            <header>
-                <h2>Items: {list?.length}</h2>
-                <h3>Checked: {count}</h3>
+        <div className='homepage'>
+            <header className='homepage__header'>
+                <h2 className='homepage__header--box'>Items: {list?.length}</h2>
+                <h2 className='homepage__header--box'>Checked: {count}</h2>
             </header>
-            {list && <List list={list?.slice(0, 50)} counter={countChecks}/>}
+            {list && <List list={list} counter={countChecks}/>}
         </div>
     );
 }
