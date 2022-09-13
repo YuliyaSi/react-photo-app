@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {Item} from "../core/types";
-import ListItem from "../components/ui/listitem";
+import ListItem from "../components/listitem";
 
 function PageFromRoute({ shownListItem }: CardFromRouteProps) {
 
@@ -10,7 +10,7 @@ function PageFromRoute({ shownListItem }: CardFromRouteProps) {
             <h2>
                 <Link to='/'>Back</Link>
             </h2>
-            <ListItem {...shownListItem}/>
+            <ListItem {...shownListItem} fullsize/>
         </div>
     );
 }

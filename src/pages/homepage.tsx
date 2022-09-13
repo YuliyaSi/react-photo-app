@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Item} from "../core/types";
-import List from "../components/smart/list";
+import List from "../components/list";
 
 const Homepage = ({ list }: HomepageProps) => {
     const [count, setCount] = useState(0);

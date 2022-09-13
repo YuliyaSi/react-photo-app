@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "../pages/homepage";
 import {Item} from "../core/types";
-import PageFromRoute from "../hocs/PageFromRoute";
+import PageFromRoute from "../pages/PageFromRoute";
 
 const RouterComponent = ({ list }: RouterComponentProps) => {
     const routesAmount = list.length;
@@ -12,7 +12,7 @@ const RouterComponent = ({ list }: RouterComponentProps) => {
             <Routes>
                 <Route path="/" element={<Homepage list={list}/>}/>
                 {routes.map(route =>
-                    <Route key={route} path={'/' + route} element={<PageFromRoute route={route} shownListItem={list[route]}/>}/>
+                    <Route key={route} path={'/' + route} element={<PageFromRoute route={route} shownListItem={list[route - 1]}/>}/>
                 )}
             </Routes>
     )
