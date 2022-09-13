@@ -10,6 +10,6 @@ export const makeApiRequest = async (
         action(response.data);
 
     } catch (error) {
-        throw new Error('Connecting to database failed.', { cause: error });
+        throw new Error('Connecting failed.', { cause: error });
     }
 };
