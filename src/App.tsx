@@ -1,11 +1,11 @@
 import React from 'react';
 import './styles/App.css';
-import Test from "./components/smart/test";
+import Homepage from "./containers/homepage";
 
 function App() {
   return (
     <>
-      <Test/>
+      <Homepage/>
     </>
   );
 }
