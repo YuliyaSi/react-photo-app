@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../../styles/checkbox/index.scss';
 
-const Checkbox = ({name, value, onChange}: CheckBoxProps) => {
+const Checkbox = ({ onChange }: CheckBoxProps) => {
+    const [checked, setChecked] = useState(false);
+
+    const toggleChecking = () => {
+        setChecked(!checked);
+        onChange(!checked);
+    }
+
     return (
         <label className="checkbox__label">
             <input
                 type="checkbox"
-                name={name}
-                checked={value}
-                onChange={onChange}
+                checked={checked}
+                onClick={toggleChecking}
                 className="checkbox__input"
             />
             <span className="checkbox__checkmark"></span>
@@ -19,7 +25,5 @@ const Checkbox = ({name, value, onChange}: CheckBoxProps) => {
 export default Checkbox;
 
 interface CheckBoxProps {
-    name?: string,
-    value?: boolean,
-    onChange?: (e?: any) => void;
+    onChange: (e?: any) => void;
 }
