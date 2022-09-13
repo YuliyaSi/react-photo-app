@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <RouterComponent list={list}/>
+      <RouterComponent list={list.slice(0, 50)}/>
     </>
   );
 }
