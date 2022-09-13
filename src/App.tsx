@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles/App.css';
-import Homepage from "./containers/homepage";
+import RouterComponent from "./routes/Router";
+import {Item} from "./core/types";
+import {makeApiRequest} from "./core/api";
 
 function App() {
+    const [list, setList] = useState<Item[] | []>([]);
+
+    useEffect(() => {
+        makeApiRequest(setList);
+    }, [])
+
   return (
     <>
-      <Homepage/>
+      <RouterComponent list={list}/>
     </>
   );
 }
