@@ -14,7 +14,7 @@ const Checkbox = ({ onChange }: CheckBoxProps) => {
             <input
                 type="checkbox"
                 checked={checked}
-                onClick={toggleChecking}
+                onChange={toggleChecking}
                 className="checkbox__input"
             />
             <span className="checkbox__checkmark"></span>
