@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {makeApiRequest} from "../../core/api";
 import {Item} from "../../core/types";
 import Checkbox from "../ui/checkbox";
+import ListItem from "../ui/listitem";
 
 const Test = () => {
     const [list, setList] = useState<Item[] | null>(null);
@@ -12,15 +13,9 @@ const Test = () => {
 
     return (
         <>
-            <Checkbox/>
-            {/*{list && list.map(item => <div key={item.id}>*/}
-            {/*    <Checkbox/>*/}
-            {/*    <h2>{item.title}</h2>*/}
-            {/*    <div>*/}
-            {/*        <img src={item.url} alt='item'/>*/}
-            {/*    </div>*/}
-
-            {/*</div>)}*/}
+            {list && <ListItem {...list[0]}>
+                <Checkbox/>
+            </ListItem>}
         </>
     )
 };
