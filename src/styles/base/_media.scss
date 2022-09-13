@@ -1,0 +1,75 @@
+$media-break-s: 480px;
+$media-break-sm: 768px;
+$media-break-md: 992px;
+$media-break-lg: 1200px;
+$max-width: 1440px;
+
+$media-break-prop-from: min-width;
+$media-break-prop-to: max-width;
+
+@mixin media-resolution-from($break-resolution) {
+  @media all and ($media-break-prop-from: $break-resolution) {
+    @content;
+  }
+}
+
+@mixin media-resolution-up-to($break-resolution) {
+  @media all and ($media-break-prop-to: $break-resolution - 1px) {
+    @content;
+  }
+}
+
+@mixin media-resolution-between($min-resolution, $max-resolution) {
+  @media all and ($media-break-prop-from: $min-resolution) and ($media-break-prop-to: $max-resolution - 1px) {
+    @content;
+  }
+}
+
+@mixin media-s {
+  @include media-resolution-from($media-break-s) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @include media-resolution-from($media-break-sm) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @include media-resolution-from($media-break-md) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @include media-resolution-from($media-break-lg) {
+    @content;
+  }
+}
+
+
+@mixin media-up-to-s {
+  @include media-resolution-up-to($media-break-s) {
+    @content;
+  }
+}
+
+@mixin media-up-to-sm {
+  @include media-resolution-up-to($media-break-sm) {
+    @content;
+  }
+}
+
+@mixin media-up-to-md {
+  @include media-resolution-up-to($media-break-md) {
+    @content;
+  }
+}
+
+@mixin media-up-to-lg {
+  @include media-resolution-up-to($media-break-lg) {
+    @content;
+  }
+}
