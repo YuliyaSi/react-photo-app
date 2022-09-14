@@ -3,8 +3,8 @@ import React, {useContext} from "react";
 import {ContextProps} from "../../core/types";
 import "../../styles/containers/paginator/index.scss"
 import DataList from "../../components/organism/data-list";
-import {AppContext} from "../../App";
 import {UsePagination} from "../../core/hooks/UsePagination";
+import {AppContext} from "../../core/context/contextProvider";
 
 const Paginator = ({ itemsPerPage = 20 }: PaginatorProps) => {
 

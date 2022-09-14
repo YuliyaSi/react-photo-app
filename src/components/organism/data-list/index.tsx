@@ -3,7 +3,7 @@ import {ContextProps, Item} from "../../../core/types";
 import Checkbox from "../../atoms/checkbox";
 import "../../../styles/organism/list/index.scss"
 import DataItem from "../../molecules/data-item";
-import {AppContext} from "../../../App";
+import {AppContext} from "../../../core/context/contextProvider";
 
 const DataList = ({ list }: DataListProps) => {
     const { changeDataList } = useContext(AppContext) as ContextProps;

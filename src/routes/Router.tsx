@@ -2,8 +2,8 @@ import React, {useContext} from "react";
 import {Routes, Route} from "react-router-dom";
 import PageFromRoute from "../pages/pageFromRoute";
 import Homepage from "../pages/homepage";
-import {AppContext} from "../App";
 import {ContextProps} from "../core/types";
+import {AppContext} from "../core/context/contextProvider";
 
 const Router = () => {
     const {dataList} = useContext(AppContext) as ContextProps;
