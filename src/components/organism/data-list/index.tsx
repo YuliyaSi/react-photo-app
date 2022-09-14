@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {ContextProps, Data} from "../../../core/types";
+import {ContextProps, Item} from "../../../core/types";
 import Checkbox from "../../atoms/checkbox";
 import "../../../styles/organism/list/index.scss"
 import DataItem from "../../molecules/data-item";
@@ -11,7 +11,7 @@ const DataList = ({ list }: DataListProps) => {
         <div className='list'>
             {list.map(elem =>
                 <DataItem key={elem.id} {...elem}>
-                    <Checkbox onChange={countChecks} value/>
+                    <Checkbox onChange={countChecks} value={elem.checkbox}/>
                 </DataItem>)}
         </div>
     );
@@ -20,5 +20,5 @@ const DataList = ({ list }: DataListProps) => {
 export default DataList;
 
 interface DataListProps {
-    list: Data[],
+    list: Item[],
 }

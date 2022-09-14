@@ -8,8 +8,8 @@ import {UsePagination} from "../../core/hooks/UsePagination";
 
 const Paginator = ({ itemsPerPage = 20 }: PaginatorProps) => {
 
-    const { list }  = useContext(AppContext) as ContextProps;
-    const { currentItems, handlePageClick, pageCount} = UsePagination(itemsPerPage, list)
+    const { dataList }  = useContext(AppContext) as ContextProps;
+    const { currentItems, handlePageClick, pageCount} = UsePagination(itemsPerPage, dataList)
 
     if (!currentItems) return null;
 

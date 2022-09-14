@@ -6,8 +6,12 @@ export interface Data {
     url: string,
 }
 
+export interface Item extends Data {
+    checkbox: boolean,
+}
+
 export interface ContextProps {
-    list: Data[],
+    dataList: Item[],
     count: number,
     countChecks: (v: boolean) => void,
 }
