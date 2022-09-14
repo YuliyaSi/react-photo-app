@@ -1,0 +1,56 @@
+@import "../../base/index";
+.pagination {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 3;
+  top: 150px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  max-width: 80%;
+  margin: 30px auto;
+  list-style: none;
+  background: $basic-color-white-20-transparent;
+  box-shadow: 0 8px 32px 0 $basic-color-header-shadow;
+  backdrop-filter: blur( 9.5px );
+  -webkit-backdrop-filter: blur( 9.5px );
+  border-radius: 10px;
+
+  @include media-up-to-sm {
+    max-width: 100%;
+  }
+
+  @include media-resolution-up-to($break-resolution: 535px) {
+    top: 225px;
+  }
+}
+
+.page {
+  &-item {
+    width: fit-content;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:first-child, &:last-child {
+      text-decoration: underline;
+    }
+
+    @include media-up-to-sm {
+      padding: 5px;
+    }
+
+    &.disabled {
+      display: none;
+    }
+
+    &.active {
+      background: $basic-color-light-purple;
+      -webkit-box-shadow: 8px 8px 24px 0 $basic-color-box-shadow;
+      -moz-box-shadow: 8px 8px 24px 0 $basic-color-box-shadow;
+      box-shadow: 8px 8px 24px 0 $basic-color-box-shadow;
+    }
+  }
+}

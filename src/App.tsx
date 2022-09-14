@@ -1,13 +1,24 @@
-import React from 'react';
-import './styles/App.css';
-import Test from "./components/smart/test";
+import React, {createContext, useEffect, useState} from 'react';
+import {ContextProps, Data} from "./core/types";
+import {makeApiRequest} from "./core/api";
+import Router from "./routes/Router";
 
-function App() {
-  return (
-    <>
-      <Test/>
-    </>
-  );
+export const AppContext = createContext<ContextProps | null>(null);
+
+const App = () => {
+    const [list, setList] = useState<Data[] | undefined>();
+
+    useEffect(() => {
+        makeApiRequest(setList);
+    }, [])
+
+    if (!list) return null;
+
+    return (
+        <AppContext.Provider value={{list}}>
+            <Router/>
+        </AppContext.Provider>
+    );
 }
 
 export default App;
