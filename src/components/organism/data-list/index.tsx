@@ -6,12 +6,12 @@ import DataItem from "../../molecules/data-item";
 import {AppContext} from "../../../App";
 
 const DataList = ({ list }: DataListProps) => {
-    const { countChecks } = useContext(AppContext) as ContextProps;
+    const { changeDataList } = useContext(AppContext) as ContextProps;
     return (
         <div className='list'>
             {list.map(elem =>
                 <DataItem key={elem.id} {...elem}>
-                    <Checkbox onChange={countChecks} value={elem.checkbox}/>
+                    <Checkbox id={elem.id} onChange={changeDataList} value={elem.checkbox}/>
                 </DataItem>)}
         </div>
     );

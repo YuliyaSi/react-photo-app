@@ -13,5 +13,5 @@ export interface Item extends Data {
 export interface ContextProps {
     dataList: Item[],
     count: number,
-    countChecks: (v: boolean) => void,
+    changeDataList: (id: number, v: boolean) => void,
 }
