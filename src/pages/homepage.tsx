@@ -5,10 +5,7 @@ import {AppContext} from "../App";
 import {ContextProps} from "../core/types";
 
 const Homepage = () => {
-    const { list }  = useContext(AppContext) as ContextProps;
-    const [count, setCount] = useState(0);
-    const countChecks = (value: boolean) => value ?
-        setCount(prevState => prevState + 1) : setCount(prevState => prevState - 1)
+    const { list, count }  = useContext(AppContext) as ContextProps;
 
     return (
         <div className='homepage'>
@@ -16,7 +13,7 @@ const Homepage = () => {
                 <h2 className='homepage__header--box'>Total items: {list.length}</h2>
                 <h2 className='homepage__header--box'>Items selected: {count}</h2>
             </header>
-            <Paginator counter={countChecks}/>
+            <Paginator/>
         </div>
     );
 }

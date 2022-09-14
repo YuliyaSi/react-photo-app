@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import '../../../styles/atoms/checkbox/index.scss';
 
-const Checkbox = ({ onChange }: CheckBoxProps) => {
-    const [checked, setChecked] = useState(false);
+const Checkbox = ({ onChange, value }: CheckBoxProps) => {
+    const [checked, setChecked] = useState(value);
 
     const toggleChecking = () => {
         setChecked(!checked);
@@ -25,5 +25,6 @@ const Checkbox = ({ onChange }: CheckBoxProps) => {
 export default Checkbox;
 
 interface CheckBoxProps {
+    value: boolean,
     onChange: (e?: any) => void;
 }

@@ -7,5 +7,7 @@ export interface Data {
 }
 
 export interface ContextProps {
-    list: Data[]
+    list: Data[],
+    count: number,
+    countChecks: (v: boolean) => void,
 }

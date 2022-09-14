@@ -6,7 +6,7 @@ import DataList from "../../components/organism/data-list";
 import {AppContext} from "../../App";
 import {UsePagination} from "../../core/hooks/UsePagination";
 
-const Paginator = ({ itemsPerPage = 20, counter }: PaginatorProps) => {
+const Paginator = ({ itemsPerPage = 20 }: PaginatorProps) => {
 
     const { list }  = useContext(AppContext) as ContextProps;
     const { currentItems, handlePageClick, pageCount} = UsePagination(itemsPerPage, list)
@@ -34,7 +34,7 @@ const Paginator = ({ itemsPerPage = 20, counter }: PaginatorProps) => {
                 containerClassName="pagination"
                 activeClassName="active"
             />
-            <DataList list={currentItems} counter={counter}/>
+            <DataList list={currentItems}/>
         </>
     );
 }
@@ -42,6 +42,5 @@ const Paginator = ({ itemsPerPage = 20, counter }: PaginatorProps) => {
 export default Paginator;
 
 interface PaginatorProps {
-    counter: (v: boolean) => void;
     itemsPerPage?: number,
 }

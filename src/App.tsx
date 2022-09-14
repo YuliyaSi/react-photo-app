@@ -7,6 +7,9 @@ export const AppContext = createContext<ContextProps | null>(null);
 
 const App = () => {
     const [list, setList] = useState<Data[] | undefined>();
+    const [count, setCount] = useState(0);
+    const countChecks = (value: boolean) => value ?
+        setCount(prevState => prevState + 1) : setCount(prevState => prevState - 1)
 
     useEffect(() => {
         makeApiRequest(setList);
@@ -15,7 +18,7 @@ const App = () => {
     if (!list) return null;
 
     return (
-        <AppContext.Provider value={{list}}>
+        <AppContext.Provider value={{list, count, countChecks}}>
             <Router/>
         </AppContext.Provider>
     );
