@@ -21,7 +21,7 @@ function Paginator({ itemsPerPage = 20, counter }: PaginatedItemsP) {
 
         setCurrentItems(list.slice(itemOffset, endOffset));
         setPageCount(Math.ceil(list.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage]);
+    }, [itemOffset, itemsPerPage, list]);
 
 
     const handlePageClick = (event: { selected: number; }) => {
