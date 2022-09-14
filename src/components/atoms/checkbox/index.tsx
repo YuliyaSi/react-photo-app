@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../styles/checkbox/index.scss';
+import '../../../styles/atoms/checkbox/index.scss';
 
 const Checkbox = ({ onChange }: CheckBoxProps) => {
     const [checked, setChecked] = useState(false);

@@ -1,32 +1,32 @@
 import ReactPaginate from "react-paginate";
-import React, {useEffect, useState} from "react";
-import {Item} from "../../core/types";
-import List from "../../components/list";
-import "../../styles/paginator/index.scss"
+import React, {useContext, useEffect, useState} from "react";
+import {ContextProps, Data} from "../../core/types";
+import "../../styles/containers/paginator/index.scss"
+import DataList from "../../components/organism/data-list";
+import {AppContext} from "../../App";
 
 interface PaginatedItemsP {
-    itemsPerPage?: number,
-    items: Item[],
     counter: (v: boolean) => void;
+    itemsPerPage?: number,
 }
 
-function Paginator({ itemsPerPage = 20, items, counter }: PaginatedItemsP) {
-
-    const [currentItems, setCurrentItems] = useState<Item[] | undefined>();
+function Paginator({ itemsPerPage = 20, counter }: PaginatedItemsP) {
+    const { list }  = useContext(AppContext) as ContextProps;
+    const [currentItems, setCurrentItems] = useState<Data[] | undefined>();
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
 
-        setCurrentItems(items.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(items.length / itemsPerPage));
+        setCurrentItems(list.slice(itemOffset, endOffset));
+        setPageCount(Math.ceil(list.length / itemsPerPage));
     }, [itemOffset, itemsPerPage]);
 
 
     const handlePageClick = (event: { selected: number; }) => {
-        const newOffset = event.selected * itemsPerPage % items.length;
-        console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+        const newOffset = event.selected * itemsPerPage % list.length;
+        console.log(`User requested page number ${event.selected + 1}, which is offset ${newOffset}`);
         setItemOffset(newOffset);
     };
 
@@ -53,7 +53,7 @@ function Paginator({ itemsPerPage = 20, items, counter }: PaginatedItemsP) {
                 containerClassName="pagination"
                 activeClassName="active"
             />
-            <List list={currentItems} counter={counter}/>
+            <DataList list={currentItems} counter={counter}/>
         </>
     );
 }
