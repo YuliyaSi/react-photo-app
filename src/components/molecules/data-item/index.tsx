@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 const DataItem = ({ id, thumbnailUrl, url, albumId, title, fullsize, children }: DataItemProps) => {
     if (fullsize) return (
         <div className='list-item-full-size'>
-            <h5 className="list-item-full-size__subtitle">Album: {albumId}</h5>
+            <h2 className="list-item-full-size__subtitle">Album: {albumId}</h2>
             <h3 className="list-item-full-size__title">Title: {title}</h3>
             <div className='list-item-full-size__image'>
                 <img src={url} alt="item"/>
