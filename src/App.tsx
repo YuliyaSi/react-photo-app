@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import RouterComponent from "./routes/Router";
-import {Item} from "./core/types";
+import React, {createContext, useEffect, useState} from 'react';
+import {ContextProps, Data} from "./core/types";
 import {makeApiRequest} from "./core/api";
+import Router from "./routes/Router";
 
-function App() {
-    const [list, setList] = useState<Item[] | undefined>();
+export const AppContext = createContext<ContextProps | null>(null);
+
+const App = () => {
+    const [list, setList] = useState<Data[] | undefined>();
 
     useEffect(() => {
         makeApiRequest(setList);
@@ -12,7 +14,11 @@ function App() {
 
     if (!list) return null;
 
-    return <RouterComponent list={list}/>;
+    return (
+        <AppContext.Provider value={{list}}>
+            <Router/>
+        </AppContext.Provider>
+    );
 }
 
 export default App;

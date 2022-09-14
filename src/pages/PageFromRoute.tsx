@@ -1,22 +1,19 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Item} from "../core/types";
-import ListItem from "../components/listitem";
-import "../styles/route-page/index.scss"
+import {Data} from "../core/types";
+import "../styles/pages/route-page/index.scss"
+import DataItem from "../components/molecules/data-item";
 
-function PageFromRoute({ shownListItem }: CardFromRouteProps) {
-
-    return (
-        <div className='route-page'>
-                <Link to='/' className='route-page__link'>&#8592; Back</Link>
-            <ListItem {...shownListItem} fullsize/>
-        </div>
-    );
-}
+const PageFromRoute = ({shownListItem}: CardFromRouteProps) => (
+    <div className='route-page'>
+        <Link to='/' className='route-page__link'>&#8592; Back</Link>
+        <DataItem {...shownListItem} fullsize/>
+    </div>
+);
 
 export default PageFromRoute;
 
 interface CardFromRouteProps {
     route: number,
-    shownListItem: Item
+    shownListItem: Data
 }

@@ -1,9 +1,9 @@
 import React, {ReactNode} from 'react';
-import {Item} from "../../core/types";
-import "../../styles/listitem/index.scss"
+import {Data} from "../../../core/types";
+import "../../../styles/molecules/listitem/index.scss"
 import {Link} from "react-router-dom";
 
-const ListItem = ({ id, thumbnailUrl, url, albumId, title, fullsize, children }: ListItemProps) => {
+const DataItem = ({ id, thumbnailUrl, url, albumId, title, fullsize, children }: DataItemProps) => {
     if (fullsize) return (
         <div className='list-item-full-size'>
             <h5 className="list-item-full-size__subtitle">Album: {albumId}</h5>
@@ -29,9 +29,9 @@ const ListItem = ({ id, thumbnailUrl, url, albumId, title, fullsize, children }:
     );
 }
 
-export default ListItem;
+export default DataItem;
 
-interface ListItemProps extends Item {
+interface DataItemProps extends Data {
     fullsize?: boolean,
     children?: ReactNode,
 }

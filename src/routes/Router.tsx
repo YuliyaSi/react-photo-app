@@ -1,25 +1,24 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Homepage from "../pages/homepage";
-import {Item} from "../core/types";
+import React, {useContext} from "react";
+import {Routes, Route} from "react-router-dom";
 import PageFromRoute from "../pages/PageFromRoute";
+import Homepage from "../pages/Homepage";
+import {AppContext} from "../App";
+import {ContextProps} from "../core/types";
 
-const RouterComponent = ({ list }: RouterComponentProps) => {
+const Router = () => {
+    const {list} = useContext(AppContext) as ContextProps;
     const routesAmount = list.length;
     const routes = Array(routesAmount).fill('').map((elem, index) => index + 1);
 
     return (
-            <Routes>
-                <Route path="/" element={<Homepage list={list}/>}/>
-                {routes.map(route =>
-                    <Route key={route} path={'/' + route} element={<PageFromRoute route={route} shownListItem={list[route - 1]}/>}/>
-                )}
-            </Routes>
+        <Routes>
+            <Route path="/" element={<Homepage/>}/>
+            {routes.map(route =>
+                <Route key={route} path={'/' + route}
+                       element={<PageFromRoute route={route} shownListItem={list[route - 1]}/>}/>
+            )}
+        </Routes>
     )
 }
 
-export default RouterComponent;
-
-interface RouterComponentProps {
-    list: Item[],
-}
+export default Router;
