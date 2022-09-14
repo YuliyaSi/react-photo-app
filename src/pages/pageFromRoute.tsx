@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Data} from "../core/types";
+import {Item} from "../core/types";
 import "../styles/pages/route-page/index.scss"
 import DataItem from "../components/molecules/data-item";
 
@@ -15,5 +15,5 @@ export default PageFromRoute;
 
 interface CardFromRouteProps {
     route: number,
-    shownListItem: Data
+    shownListItem: Item
 }
