@@ -1,34 +1,15 @@
 import ReactPaginate from "react-paginate";
-import React, {useContext, useEffect, useState} from "react";
-import {ContextProps, Data} from "../../core/types";
+import React, {useContext} from "react";
+import {ContextProps} from "../../core/types";
 import "../../styles/containers/paginator/index.scss"
 import DataList from "../../components/organism/data-list";
 import {AppContext} from "../../App";
+import {UsePagination} from "../../core/hooks/UsePagination";
 
-interface PaginatedItemsP {
-    counter: (v: boolean) => void;
-    itemsPerPage?: number,
-}
+const Paginator = ({ itemsPerPage = 20, counter }: PaginatorProps) => {
 
-function Paginator({ itemsPerPage = 20, counter }: PaginatedItemsP) {
     const { list }  = useContext(AppContext) as ContextProps;
-    const [currentItems, setCurrentItems] = useState<Data[] | undefined>();
-    const [pageCount, setPageCount] = useState(0);
-    const [itemOffset, setItemOffset] = useState(0);
-
-    useEffect(() => {
-        const endOffset = itemOffset + itemsPerPage;
-
-        setCurrentItems(list.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(list.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage, list]);
-
-
-    const handlePageClick = (event: { selected: number; }) => {
-        const newOffset = event.selected * itemsPerPage % list.length;
-        console.log(`User requested page number ${event.selected + 1}, which is offset ${newOffset}`);
-        setItemOffset(newOffset);
-    };
+    const { currentItems, handlePageClick, pageCount} = UsePagination(itemsPerPage, list)
 
     if (!currentItems) return null;
 
@@ -59,3 +40,8 @@ function Paginator({ itemsPerPage = 20, counter }: PaginatedItemsP) {
 }
 
 export default Paginator;
+
+interface PaginatorProps {
+    counter: (v: boolean) => void;
+    itemsPerPage?: number,
+}
