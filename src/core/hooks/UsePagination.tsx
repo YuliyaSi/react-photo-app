@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {Data} from "../types";
+import {Item} from "../types";
 
-export const UsePagination = (itemsPerPage: number, list: Data[] ) => {
-    const [currentItems, setCurrentItems] = useState<Data[] | undefined>();
+export const UsePagination = (itemsPerPage: number, list: Item[] ) => {
+    const [currentItems, setCurrentItems] = useState<Item[] | undefined>();
     const [pageCount, setPageCount] = useState(0);
     const [itemOffset, setItemOffset] = useState(0);
 

@@ -1,24 +1,10 @@
-import React, {createContext, useEffect, useState} from 'react';
-import {ContextProps, Data} from "./core/types";
-import {makeApiRequest} from "./core/api";
 import Router from "./routes/Router";
+import {ContextProvider} from "./core/context/contextProvider";
 
-export const AppContext = createContext<ContextProps | null>(null);
-
-const App = () => {
-    const [list, setList] = useState<Data[] | undefined>();
-
-    useEffect(() => {
-        makeApiRequest(setList);
-    }, [])
-
-    if (!list) return null;
-
-    return (
-        <AppContext.Provider value={{list}}>
+const App = () => (
+        <ContextProvider>
             <Router/>
-        </AppContext.Provider>
+        </ContextProvider>
     );
-}
 
 export default App;

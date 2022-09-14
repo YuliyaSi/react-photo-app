@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {Data} from "../../../core/types";
+import {Item} from "../../../core/types";
 import "../../../styles/molecules/listitem/index.scss"
 import {Link} from "react-router-dom";
 
@@ -31,7 +31,7 @@ const DataItem = ({ id, thumbnailUrl, url, albumId, title, fullsize, children }:
 
 export default DataItem;
 
-interface DataItemProps extends Data {
+interface DataItemProps extends Item {
     fullsize?: boolean,
     children?: ReactNode,
 }
