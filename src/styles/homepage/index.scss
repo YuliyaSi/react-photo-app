@@ -6,14 +6,18 @@
     position: sticky;
     position: -webkit-sticky;
     z-index: 3;
-    top: 0;
+    top: 15px;
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    background: $basic-color-light-purple;
+    background: $basic-color-light-purple-20-transparent;
+    box-shadow: 0 8px 32px 0 $basic-color-header-shadow;
+    backdrop-filter: blur( 9.5px );
+    -webkit-backdrop-filter: blur( 9.5px );
+    border-radius: 10px;
     padding: 30px;
 
     &--box {

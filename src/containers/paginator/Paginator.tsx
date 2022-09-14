@@ -2,6 +2,7 @@ import ReactPaginate from "react-paginate";
 import React, {useEffect, useState} from "react";
 import {Item} from "../../core/types";
 import List from "../../components/list";
+import "../../styles/paginator/index.scss"
 
 interface PaginatedItemsP {
     itemsPerPage?: number,
@@ -34,12 +35,12 @@ function Paginator({ itemsPerPage = 20, items, counter }: PaginatedItemsP) {
     return (
         <>
             <ReactPaginate
-                nextLabel="next >"
+                nextLabel="next"
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={2}
                 pageCount={pageCount}
-                previousLabel="< previous"
+                previousLabel="previous"
                 pageClassName="page-item"
                 pageLinkClassName="page-link"
                 previousClassName="page-item"
