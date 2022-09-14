@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {Routes, Route} from "react-router-dom";
-import PageFromRoute from "../pages/PageFromRoute";
-import Homepage from "../pages/Homepage";
+import PageFromRoute from "../pages/pageFromRoute";
+import Homepage from "../pages/homepage";
 import {AppContext} from "../App";
 import {ContextProps} from "../core/types";
 

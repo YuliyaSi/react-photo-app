@@ -29,6 +29,10 @@
       text-decoration: underline;
     }
 
+    @include media-up-to-sm {
+      padding: 10px;
+    }
+
     @include media-up-to-s {
       padding: 5px;
     }

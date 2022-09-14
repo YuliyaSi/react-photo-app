@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {Data} from "../types";
 
 export const UsePagination = (itemsPerPage: number, list: Data[] ) => {
